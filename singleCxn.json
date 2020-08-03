@@ -1,0 +1,262 @@
+{
+	"items": [
+		{
+			"type": "SP",
+			"id": "lTeX-Mmdne4-vqe8NJOu_2xocAU",
+			"name": "PRD:ISIGHT:SP",
+			"entityId": "PRD:ISIGHT:SP",
+			"active": true,
+			"contactInfo": {
+				"company": "i-Sight",
+				"firstName": "Jason",
+				"lastName": "Victor",
+				"email": "JVictor@i-sight.com"
+			},
+			"baseUrl": "https://davitaer.i-sight.com",
+			"loggingMode": "STANDARD",
+			"virtualEntityIds": [],
+			"licenseConnectionGroup": "",
+			"credentials": {
+				"certs": [],
+				"signingSettings": {
+					"signingKeyPairRef": {
+						"id": "43",
+						"location": "https://DEN3W1SSOCA01.DAVITA.Corp:9999/pf-admin-api/v1/keyPairs/signing/43"
+					},
+					"includeCertInSignature": false,
+					"includeRawKeyInSignature": false,
+					"algorithm": "SHA256withRSA"
+				}
+			},
+			"spBrowserSso": {
+				"protocol": "SAML20",
+				"enabledProfiles": [
+					"IDP_INITIATED_SSO"
+				],
+				"ssoServiceEndpoints": [
+					{
+						"binding": "POST",
+						"url": "/samlsso.nsf/accessagentdavitaprod?openagent",
+						"isDefault": true,
+						"index": 0
+					}
+				],
+				"signAssertions": true,
+				"signResponseAsRequired": false,
+				"spSamlIdentityMapping": "STANDARD",
+				"requireSignedAuthnRequests": false,
+				"assertionLifetime": {
+					"minutesBefore": 5,
+					"minutesAfter": 5
+				},
+				"encryptionPolicy": {
+					"encryptAssertion": false,
+					"encryptSloSubjectNameId": false,
+					"sloSubjectNameIDEncrypted": false,
+					"encryptedAttributes": []
+				},
+				"attributeContract": {
+					"coreAttributes": [
+						{
+							"name": "SAML_SUBJECT",
+							"nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+						}
+					],
+					"extendedAttributes": [
+						{
+							"name": "First Name",
+							"nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+						},
+						{
+							"name": "Emp ID",
+							"nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+						},
+						{
+							"name": "Email",
+							"nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+						},
+						{
+							"name": "Login",
+							"nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+						},
+						{
+							"name": "Last Name",
+							"nameFormat": "urn:oasis:names:tc:SAML:2.0:attrname-format:basic"
+						}
+					]
+				},
+				"adapterMappings": [
+					{
+						"attributeSources": [
+							{
+								"type": "LDAP",
+								"dataStoreRef": {
+									"id": "LDAP-314C9BDFD2C3121C64091FFFAC65C5F10DEE17AB",
+									"location": "https://DEN3W1SSOCA01.DAVITA.Corp:9999/pf-admin-api/v1/dataStores/LDAP-314C9BDFD2C3121C64091FFFAC65C5F10DEE17AB"
+								},
+								"id": "ADPROD",
+								"description": "ADPROD",
+								"baseDn": "dc=davita,dc=corp",
+								"searchScope": "SUBTREE",
+								"searchFilter": "sAMAccountName=${subject}",
+								"binaryAttributeSettings": {},
+								"memberOfNestedGroup": false
+							}
+						],
+						"attributeContractFulfillment": {
+							"Emp ID": {
+								"source": {
+									"type": "LDAP_DATA_STORE",
+									"id": "ADPROD"
+								},
+								"value": "employeeID"
+							},
+							"Email": {
+								"source": {
+									"type": "LDAP_DATA_STORE",
+									"id": "ADPROD"
+								},
+								"value": "mail"
+							},
+							"First Name": {
+								"source": {
+									"type": "LDAP_DATA_STORE",
+									"id": "ADPROD"
+								},
+								"value": "givenName"
+							},
+							"Login": {
+								"source": {
+									"type": "LDAP_DATA_STORE",
+									"id": "ADPROD"
+								},
+								"value": "sAMAccountName"
+							},
+							"Last Name": {
+								"source": {
+									"type": "LDAP_DATA_STORE",
+									"id": "ADPROD"
+								},
+								"value": "sn"
+							},
+							"SAML_SUBJECT": {
+								"source": {
+									"type": "ADAPTER"
+								},
+								"value": "subject"
+							}
+						},
+						"issuanceCriteria": {
+							"conditionalCriteria": []
+						},
+						"restrictVirtualEntityIds": false,
+						"restrictedVirtualEntityIds": [],
+						"idpAdapterRef": {
+							"id": "IdPAdapterForm",
+							"location": "https://DEN3W1SSOCA01.DAVITA.Corp:9999/pf-admin-api/v1/idp/adapters/IdPAdapterForm"
+						},
+						"abortSsoTransactionAsFailSafe": false
+					}
+				],
+				"authenticationPolicyContractAssertionMappings": []
+			}
+		},
+		{
+			"type": "SP",
+			"id": "w6fsy0gMFvzt6VaPm1kTNYxeiVp",
+			"name": "PRD:COUPA:SP",
+			"entityId": "sso-prd1.coupahost.com",
+			"active": true,
+			"contactInfo": {
+				"company": "Coupa Software",
+				"firstName": "Coupa",
+				"lastName": "Operations",
+				"phone": "650-931-3200",
+				"email": "support@coupa.com"
+			},
+			"baseUrl": "https://sso-prd1.coupahost.com",
+			"loggingMode": "STANDARD",
+			"virtualEntityIds": [],
+			"licenseConnectionGroup": "",
+			"credentials": {
+				"certs": [],
+				"signingSettings": {
+					"signingKeyPairRef": {
+						"id": "jwzfneq38r6fnv794pnd7ddof",
+						"location": "https://DEN3W1SSOCA01.DAVITA.Corp:9999/pf-admin-api/v1/keyPairs/signing/jwzfneq38r6fnv794pnd7ddof"
+					},
+					"includeCertInSignature": true,
+					"includeRawKeyInSignature": false,
+					"algorithm": "SHA256withRSA"
+				}
+			},
+			"spBrowserSso": {
+				"protocol": "SAML20",
+				"enabledProfiles": [
+					"SP_INITIATED_SSO",
+					"IDP_INITIATED_SSO"
+				],
+				"incomingBindings": [
+					"REDIRECT",
+					"POST"
+				],
+				"ssoServiceEndpoints": [
+					{
+						"binding": "POST",
+						"url": "/sp/ACS.saml2",
+						"isDefault": true,
+						"index": 0
+					}
+				],
+				"signAssertions": true,
+				"signResponseAsRequired": false,
+				"spSamlIdentityMapping": "STANDARD",
+				"requireSignedAuthnRequests": false,
+				"assertionLifetime": {
+					"minutesBefore": 5,
+					"minutesAfter": 5
+				},
+				"encryptionPolicy": {
+					"encryptAssertion": false,
+					"encryptSloSubjectNameId": false,
+					"sloSubjectNameIDEncrypted": false,
+					"encryptedAttributes": []
+				},
+				"attributeContract": {
+					"coreAttributes": [
+						{
+							"name": "SAML_SUBJECT",
+							"nameFormat": "urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified"
+						}
+					],
+					"extendedAttributes": []
+				},
+				"adapterMappings": [
+					{
+						"attributeSources": [],
+						"attributeContractFulfillment": {
+							"SAML_SUBJECT": {
+								"source": {
+									"type": "ADAPTER"
+								},
+								"value": "subject"
+							}
+						},
+						"issuanceCriteria": {
+							"conditionalCriteria": []
+						},
+						"restrictVirtualEntityIds": false,
+						"restrictedVirtualEntityIds": [],
+						"idpAdapterRef": {
+							"id": "IdPAdapterForm",
+							"location": "https://DEN3W1SSOCA01.DAVITA.Corp:9999/pf-admin-api/v1/idp/adapters/IdPAdapterForm"
+						},
+						"abortSsoTransactionAsFailSafe": false
+					}
+				],
+				"authenticationPolicyContractAssertionMappings": []
+			},
+			"applicationName": "Coupa-ShelbyGroup"
+		}
+	]
+}
